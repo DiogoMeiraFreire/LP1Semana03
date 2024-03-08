@@ -1,5 +1,8 @@
+using System;
+
 namespace HeroPerks.Enum
 {
+    [Flags]
     public enum HeroPerksEnum
     {
         Stealth = 1 << 0,
