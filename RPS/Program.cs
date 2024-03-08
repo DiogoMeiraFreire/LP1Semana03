@@ -1,4 +1,6 @@
 ﻿using System;
+using RPS.Items;
+using RPS.Status;
 
 namespace RPS
 {
@@ -7,15 +9,16 @@ namespace RPS
         private static void Main(string[] args)
         {
             int result = RockPaperScissors(args[0], args[1]);
+
             switch (result)
             {
-                case 0:
+                case 1:
                     Console.WriteLine("It's a draw!");
                     break;
-                case 1:
+                case 2:
                     Console.WriteLine("Player 1 wins!");
                     break;
-                case 2:
+                case 4:
                     Console.WriteLine("Player 2 wins!");
                     break;
             }
@@ -23,20 +26,34 @@ namespace RPS
 
         private static int RockPaperScissors(string player1, string player2)
         {
-            if (player1 == player2)
+            RockPaperScissorItems P1Play = 
+            (RockPaperScissorItems)Enum.Parse(typeof(RockPaperScissorItems), player1);
+            RockPaperScissorItems P2Play = 
+            (RockPaperScissorItems)Enum.Parse(typeof(RockPaperScissorItems), player2);
+
+            RockPaperScissorStatus result = 0;
+
+            if (P1Play == P2Play)
             {
-                return 0; // Draw
+                result = RockPaperScissorStatus.Draw;
+                return (int)result;
             }
-            if (((player1 == "Rock") && (player2 == "Scissors")) ||
-                ((player1 == "Scissors") && (player2 == "Paper")) ||
-                ((player1 == "Paper") && (player2 == "Rock")))
+            else if (((P1Play == RockPaperScissorItems.Rock) && 
+                 (P2Play == RockPaperScissorItems.Scissors)) ||
+                ((P1Play == RockPaperScissorItems.Scissors) && 
+                 (P2Play == RockPaperScissorItems.Paper)) ||
+                ((P1Play == RockPaperScissorItems.Paper) && 
+                 (P2Play == RockPaperScissorItems.Rock)))
             {
-                return 1; // Player 1 wins
+                result = RockPaperScissorStatus.Player1Wins;
+                return (int)result;
             }
             else
             {
-                return 2; // Player 2 wins
+                result = RockPaperScissorStatus.Player2Wins;
+                return (int)result;
             }
+                
         }
     }
 }
