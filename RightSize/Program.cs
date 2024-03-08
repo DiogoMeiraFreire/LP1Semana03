@@ -10,7 +10,7 @@ namespace RightSize
 
             foreach(string str in args)
             {
-                
+
                 if (str.Length > 3)
                 {
                     if(str.Length > 6)
