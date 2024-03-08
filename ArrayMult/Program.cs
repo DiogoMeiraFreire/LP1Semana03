@@ -26,7 +26,7 @@ namespace ArrayMult
                     answer += array1[i, j] * array2[j, 0];
                     
                 }
-                Console.WriteLine(CalcResult);
+                Console.WriteLine(answer);
             }
 
            
