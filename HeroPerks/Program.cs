@@ -1,4 +1,5 @@
 ﻿using System;
+using HeroPerks.Enum;
 
 namespace HeroPerks
 {
