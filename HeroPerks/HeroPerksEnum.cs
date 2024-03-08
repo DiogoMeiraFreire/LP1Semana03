@@ -5,9 +5,9 @@ namespace HeroPerks.Enum
     [Flags]
     public enum HeroPerksEnum
     {
-        Stealth = 1 << 0,
-        DoubleJump = 1 << 1,
-        WaterBreathing = 1 << 2,
-        AutoHeal = 1 << 3
+        WaterBreathing = 1 << 0,
+        Stealth = 1 << 1,
+        AutoHeal = 1 << 2,
+        DoubleJump = 1 << 3
     }
 }
